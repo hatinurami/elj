@@ -27,9 +27,9 @@
                 HorizontalAlignment="Left"
                 Margin="16,20,0,20">
             <Grid>
-                <WrapPanel
-                    Margin="10 0"
-                    VerticalAlignment="Center">
+                <WrapPanel x:Name="StudentButton"
+                           Margin="10 0"
+                           VerticalAlignment="Center">
                     <Button x:Name="btnRasp"                    
                             Content="Расписание"
                             Style="{DynamicResource btnSt}"
@@ -45,6 +45,7 @@
                             Click="btnKab_Click"/>
 
                 </WrapPanel>
+
                 <Button x:Name="exitBttn"                     
                     Content="Выход"
                         HorizontalAlignment="Right"
@@ -99,8 +100,7 @@
                NavigationUIVisibility="Hidden"
                Background="#E4F1F6"
               HorizontalAlignment="Left" 
-               VerticalAlignment="Top" >
-
+               VerticalAlignment="Top">
         </Frame>
     </Grid>
 

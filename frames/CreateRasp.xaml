@@ -1,0 +1,91 @@
+﻿<Page x:Class="elj.frames.CreateRasp"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:elj.frames"
+      mc:Ignorable="d" 
+      FontFamily="\appdata\ofont.ru_dobotopro.ttf" 
+      d:DesignHeight="582"
+      d:DesignWidth="867"
+      Title="CreateRasp">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="241*"/>
+            <ColumnDefinition Width="626*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="165*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1">
+            <GroupBox Header="Параметры">
+                <StackPanel>
+                    <GroupBox Header="Выберите группу">
+                    <ComboBox x:Name="groups_cb"
+                              Margin="4"
+                              DisplayMemberPath="groupName"
+                              SelectedValuePath="idGroup"/>
+                    
+                </GroupBox>
+                    <GroupBox Header="Поиск преподавателя"
+                              Margin="5">
+                        <TextBox
+                            x:Name="search"
+                            FontSize="18"
+                            />
+                    </GroupBox>
+                </StackPanel>
+               
+            </GroupBox>
+            <Button Content="Добавить расписание"
+                    Style="{StaticResource btnSt}"
+                    FontSize="16"
+                    Height="50"
+                    Width="200"
+                    Click="Button_Click"
+                    Margin="5"
+                    BorderBrush="Black"
+                    Foreground="Black"></Button>
+        </StackPanel>
+        <TextBlock
+            Grid.Column="1"
+            
+            FontSize="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Text="Расписание преподавателей"
+            TextWrapping="Wrap">
+            
+        </TextBlock>
+        <DataGrid
+            x:Name="raspGrid"
+            Grid.Column="1"
+            Grid.Row="1"
+            Margin="10"
+            AutoGenerateColumns="False"
+            CanUserReorderColumns="False">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="День недели"
+                                        x:Name="dayweek"
+                                        Binding ="{Binding WeekDay.nameDay}"
+                                        Width="150"/>
+                <DataGridTextColumn Header="Номер пары"                                      
+                                        Width="100"
+                                    Binding="{Binding idTimeTable}"/>
+                <DataGridTextColumn Header="Дисциплина"
+                                        Width="100"
+                                    Binding="{Binding TeachSubject.Subject.subjectname}"/>
+                <DataGridTextColumn Header="Преподаватель"
+                                        Width="100"
+                                    Binding="{Binding TeachSubject.Teacher.Users.lName}"/>
+            </DataGrid.Columns>
+
+
+        </DataGrid>
+        
+    </Grid>
+</Page>
